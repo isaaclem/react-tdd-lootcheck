@@ -7,5 +7,22 @@ describe('balanceReducer', () => {
 
     expect(balanceReducer(undefined, { type: constants.SET_BALANCE, balance }))
       .toEqual(balance);
+  });
+
+  it('deposits an amount', () => {
+    const deposit = 10;
+    const initialState = 5;
+
+    expect(balanceReducer(initialState, { type: constants.DEPOSIT_BALANCE, deposit }))
+      .toEqual(deposit+initialState);
+  });
+
+  it('withdraws an amount', () => {
+    const initialState = 20;
+    const withdrawAmount = 8;
+    const reduxAction = { type: constants.WITHDRAW_BALANCE, withdrawAmount };
+
+    expect(balanceReducer(initialState, reduxAction))
+      .toEqual(initialState - withdrawAmount);
   })
-})
+});
