@@ -13,5 +13,9 @@ describe('App', () => {
     // console.log(app.debug());
     expect(app.find('ConnectFunction').exists()).toBe(true);
   });
+
+  it('contains a Loot component', () => {
+    expect(app.find('ConnectFunction').exists()).toBe(true);
+  })
 });
 
